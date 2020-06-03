@@ -1,29 +1,5 @@
+import { VTextField, VCol, VRow, VTextarea } from 'vuetify/lib';
 import Vue from 'vue';
-import Vuetify, { VTextField, VCol, VRow, VTextarea } from 'vuetify/lib';
-import colors from 'vuetify/lib/util/colors';
-
-Vue.use(Vuetify);
-new Vuetify({
-  icons: {
-    iconfont: "mdi"
-  },
-  theme: {
-    themes: {
-      light: {
-        primary: colors.green.darken1,
-        secondary: colors.green.darken3,
-        accent: colors.grey.darken1,
-        error: colors.green.accent2,
-        info: colors.blue.base,
-        success: colors.green.base,
-        warning: colors.amber.base,
-        primary_text: colors.grey.darken4,
-        secondary_text: colors.grey.darken2,
-        divider: "#B6B6B6"
-      }
-    }
-  }
-});
 
 var script = Vue.extend({
   components: {
@@ -384,6 +360,7 @@ var components = /*#__PURE__*/Object.freeze({
   SfcRollupVuetifySample: __vue_component__$2
 });
 
+// Import vue components
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()
