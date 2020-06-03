@@ -1,7 +1,39 @@
 import Vue from 'vue';
+import Vuetify, { VTextField, VCol, VRow, VTextarea } from 'vuetify/lib';
+import colors from 'vuetify/lib/util/colors';
+
+Vue.use(Vuetify);
+new Vuetify({
+  icons: {
+    iconfont: "mdi"
+  },
+  theme: {
+    themes: {
+      light: {
+        primary: colors.green.darken1,
+        secondary: colors.green.darken3,
+        accent: colors.grey.darken1,
+        error: colors.green.accent2,
+        info: colors.blue.base,
+        success: colors.green.base,
+        warning: colors.amber.base,
+        primary_text: colors.grey.darken4,
+        secondary_text: colors.grey.darken2,
+        divider: "#B6B6B6"
+      }
+    }
+  }
+});
 
 var script = Vue.extend({
+  components: {
+    VTextField: VTextField,
+    VCol: VCol,
+    VRow: VRow
+  },
+
   name: 'ChildOne',
+
   props: {
     value: String
   }
@@ -131,7 +163,14 @@ const __vue_component__ = /*#__PURE__*/normalizeComponent({
 }, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, false, undefined, undefined, undefined);
 
 var script$1 = Vue.extend({
+  components: {
+    VTextField: VTextField,
+    VCol: VCol,
+    VRow: VRow
+  },
+
   name: 'ChildTwo',
+
   props: {
     value: String
   }
@@ -190,7 +229,10 @@ var script$2 = Vue.extend({
   // vue component name
   components: {
     ChildOne: __vue_component__,
-    ChildTwo: __vue_component__$1
+    ChildTwo: __vue_component__$1,
+    VTextarea: VTextarea,
+    VCol: VCol,
+    VRow: VRow
   },
   props: {
     value: String
@@ -342,7 +384,6 @@ var components = /*#__PURE__*/Object.freeze({
   SfcRollupVuetifySample: __vue_component__$2
 });
 
-// Import vue components
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()

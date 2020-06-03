@@ -8,6 +8,7 @@ import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
+import vuetify from 'rollup-plugin-vuetify';
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs
@@ -54,7 +55,8 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   'vue',
-  'vuetify'
+  'vuetify',
+  'vuetify/lib'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -95,7 +97,8 @@ if (!argv.format || argv.format === 'es') {
           ]
         ]
       }),
-      commonjs()
+      commonjs(),
+      vuetify()
     ]
   };
   buildFormats.push(esConfig);
@@ -124,7 +127,8 @@ if (!argv.format || argv.format === 'cjs') {
         }
       }),
       babel(baseConfig.plugins.babel),
-      commonjs()
+      commonjs(),
+      vuetify()
     ]
   };
   buildFormats.push(umdConfig);
@@ -152,7 +156,8 @@ if (!argv.format || argv.format === 'iife') {
         output: {
           ecma: 5
         }
-      })
+      }),
+      vuetify()
     ]
   };
   buildFormats.push(unpkgConfig);
