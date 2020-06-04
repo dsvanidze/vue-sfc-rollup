@@ -1,5 +1,29 @@
-import { VTextField, VCol, VRow, VTextarea } from 'vuetify/lib';
 import Vue from 'vue';
+import { extend, ValidationProvider } from 'vee-validate';
+import { VTextField, VCol, VRow, VTextarea } from 'vuetify/lib';
+
+const customValidation = {
+  params: ['errorMsg'],
+  // @ts-ignore
+  validate: (value, {
+    errorMsg
+  }) => ({
+    required: true,
+    valid: !errorMsg
+  }),
+  // @ts-ignore
+  message: (field, {
+    errorMsg
+  }) => errorMsg,
+  computesRequired: true
+};
+var VeeValidate = {
+  install(Vue) {
+    extend('customValidation', customValidation);
+    Vue.component('ValidationProvider', ValidationProvider);
+  }
+
+};
 
 var script = Vue.extend({
   components: {
@@ -11,7 +35,8 @@ var script = Vue.extend({
   name: 'ChildOne',
 
   props: {
-    value: String
+    value: String,
+    validation: Object
   }
 });
 
@@ -101,16 +126,28 @@ var __vue_render__ = function () {
 
   var _c = _vm._self._c || _h;
 
-  return _c('v-row', [_c('v-col', [_c('v-text-field', {
+  return _c('v-row', [_c('v-col', [_c('ValidationProvider', {
     attrs: {
-      "label": "Child One (changes parent's label)",
-      "value": _vm.value
+      "rules": _vm.validation
     },
-    on: {
-      "input": function ($event) {
-        return _vm.$emit('input', $event);
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (ref) {
+        var errors = ref.errors;
+        return [_c('v-text-field', {
+          attrs: {
+            "label": "Child One (changes parent's label)",
+            "value": _vm.value,
+            "error-messages": errors[0]
+          },
+          on: {
+            "input": function ($event) {
+              return _vm.$emit('input', $event);
+            }
+          }
+        })];
       }
-    }
+    }])
   })], 1)], 1);
 };
 
@@ -120,7 +157,7 @@ var __vue_staticRenderFns__ = [];
 const __vue_inject_styles__ = undefined;
 /* scoped */
 
-const __vue_scope_id__ = "data-v-7a134552";
+const __vue_scope_id__ = "data-v-6b9633ea";
 /* module identifier */
 
 const __vue_module_identifier__ = undefined;
@@ -148,7 +185,8 @@ var script$1 = Vue.extend({
   name: 'ChildTwo',
 
   props: {
-    value: String
+    value: String,
+    validation: Object
   }
 });
 
@@ -163,16 +201,28 @@ var __vue_render__$1 = function () {
 
   var _c = _vm._self._c || _h;
 
-  return _c('v-row', [_c('v-col', [_c('v-text-field', {
+  return _c('v-row', [_c('v-col', [_c('ValidationProvider', {
     attrs: {
-      "label": "Child Two (changes parent's color)",
-      "value": _vm.value
+      "rules": _vm.validation
     },
-    on: {
-      "input": function ($event) {
-        return _vm.$emit('input', $event);
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (ref) {
+        var errors = ref.errors;
+        return [_c('v-text-field', {
+          attrs: {
+            "label": "Child Two (changes parent's color)",
+            "value": _vm.value,
+            "error-messages": errors[0]
+          },
+          on: {
+            "input": function ($event) {
+              return _vm.$emit('input', $event);
+            }
+          }
+        })];
       }
-    }
+    }])
   })], 1)], 1);
 };
 
@@ -182,7 +232,7 @@ var __vue_staticRenderFns__$1 = [];
 const __vue_inject_styles__$1 = undefined;
 /* scoped */
 
-const __vue_scope_id__$1 = "data-v-5f47392e";
+const __vue_scope_id__$1 = "data-v-b20cdeea";
 /* module identifier */
 
 const __vue_module_identifier__$1 = undefined;
@@ -211,7 +261,8 @@ var script$2 = Vue.extend({
     VRow: VRow
   },
   props: {
-    value: String
+    value: String,
+    validation: Object
   },
 
   data() {
@@ -293,18 +344,37 @@ var __vue_render__$2 = function () {
     }
   }, [_c('div', {
     staticClass: "sfc-rollup-vuetify-sample"
-  }, [_c('v-textarea', {
+  }, [_c('ValidationProvider', {
     attrs: {
-      "value": _vm.value,
-      "label": _vm.label,
-      "color": _vm.color
+      "rules": _vm.validation
     },
-    on: {
-      "input": function ($event) {
-        return _vm.$emit('input', $event);
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function (ref) {
+        var errors = ref.errors;
+        return [_c('v-textarea', {
+          attrs: {
+            "value": _vm.value,
+            "error-messages": errors[0],
+            "label": _vm.label,
+            "color": _vm.color
+          },
+          on: {
+            "input": function ($event) {
+              return _vm.$emit('input', $event);
+            }
+          }
+        })];
       }
-    }
+    }])
   }), _vm._v(" "), _c('child-one', {
+    attrs: {
+      "validation": {
+        customValidation: {
+          errorMsg: ''
+        }
+      }
+    },
     model: {
       value: _vm.label,
       callback: function ($$v) {
@@ -313,6 +383,13 @@ var __vue_render__$2 = function () {
       expression: "label"
     }
   }), _vm._v(" "), _c('child-two', {
+    attrs: {
+      "validation": {
+        customValidation: {
+          errorMsg: ''
+        }
+      }
+    },
     model: {
       value: _vm.color,
       callback: function ($$v) {
@@ -328,8 +405,8 @@ var __vue_staticRenderFns__$2 = [];
 
 const __vue_inject_styles__$2 = function (inject) {
   if (!inject) return;
-  inject("data-v-80c4dcfe_0", {
-    source: ".sfc-rollup-vuetify-sample[data-v-80c4dcfe]{max-width:700px;margin:0 auto}",
+  inject("data-v-0e70a8ff_0", {
+    source: ".sfc-rollup-vuetify-sample[data-v-0e70a8ff]{max-width:700px;margin:0 auto}",
     map: undefined,
     media: undefined
   });
@@ -337,7 +414,7 @@ const __vue_inject_styles__$2 = function (inject) {
 /* scoped */
 
 
-const __vue_scope_id__$2 = "data-v-80c4dcfe";
+const __vue_scope_id__$2 = "data-v-0e70a8ff";
 /* module identifier */
 
 const __vue_module_identifier__$2 = undefined;
@@ -360,7 +437,7 @@ var components = /*#__PURE__*/Object.freeze({
   SfcRollupVuetifySample: __vue_component__$2
 });
 
-// Import vue components
+Vue.use(VeeValidate); // Import vue components
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 
 // install function executed by Vue.use()

@@ -56,7 +56,8 @@ const external = [
   // eg. 'jquery'
   'vue',
   'vuetify',
-  'vuetify/lib'
+  'vuetify/lib',
+  'vee-validate'
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -65,7 +66,8 @@ const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
   vue: 'Vue',
-  vuetify: 'Vuetify'
+  'vuetify/lib': 'Vuetify',
+  'vee-validate': 'VeeValidate'
 };
 
 // Customize configs for individual targets

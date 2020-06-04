@@ -1,5 +1,8 @@
 import _Vue, { PluginFunction } from 'vue';
 
+import VeeValidate from '@/plugins/vee-validate';
+_Vue.use(VeeValidate);
+
 // Import vue components
 import * as components from '@/lib-components/index';
 
