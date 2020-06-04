@@ -1,7 +1,14 @@
 <template>
   <v-row>
     <v-col>
-      <v-text-field label="Child One (changes parent's label)" :value="value" @input="$emit('input', $event)"></v-text-field>
+      <ValidationProvider :rules="validation" v-slot="{ errors }">
+        <v-text-field
+          label="Child One (changes parent's label)"
+          :value="value"
+          :error-messages="errors[0]"
+          @input="$emit('input', $event)"
+        ></v-text-field>
+      </ValidationProvider>
     </v-col>
   </v-row>
 </template>
@@ -12,7 +19,8 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'ChildOne',
   props: {
-    value: String
+    value: String,
+    validation: Object
   }
 });
 </script>

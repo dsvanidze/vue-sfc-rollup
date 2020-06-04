@@ -15,7 +15,8 @@ export default Vue.extend({
     ChildTwo
   },
   props: {
-    value: String
+    value: String,
+    validation: Object
   },
   data(): SampleData {
     return {
@@ -30,9 +31,17 @@ export default Vue.extend({
   <v-row>
     <v-col cols="12">
       <div class="sfc-rollup-vuetify-sample">
-        <v-textarea :value="value" :label="label" :color="color" @input="$emit('input', $event)"></v-textarea>
-        <child-one v-model="label"></child-one>
-        <child-two v-model="color"></child-two>
+        <ValidationProvider :rules="validation" v-slot="{ errors }">
+          <v-textarea
+            :value="value"
+            :error-messages="errors[0]"
+            :label="label"
+            :color="color"
+            @input="$emit('input', $event)"
+          ></v-textarea>
+        </ValidationProvider>
+        <child-one v-model="label" :validation="{ customValidation: { errorMsg: '' } }"></child-one>
+        <child-two v-model="color" :validation="{ customValidation: { errorMsg: '' } }"></child-two>
       </div>
     </v-col>
   </v-row>

@@ -39,6 +39,7 @@
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "^3.8.3",
+    "vee-validate": "^3.3.2",
     "vue": "^2.6.11",
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-template-compiler": "^2.6.11",
@@ -47,7 +48,8 @@
   },
   "peerDependencies": {
     "vue": "^2.6.11",
-    "vuetify": "^2.2.11"
+    "vuetify": "^2.2.11",
+    "vee-validate": "^3.3.2"
   },
   "engines": {
     "node": ">=10"

@@ -24,7 +24,7 @@ export default Vue.extend({
     <v-app>
       <v-content>
         <v-container fluid>
-          <sfc-rollup-vuetify-sample v-model="text" />
+          <sfc-rollup-vuetify-sample v-model="text" :validation="{ customValidation: { errorMsg: '' } }" />
         </v-container>
       </v-content>
     </v-app>
