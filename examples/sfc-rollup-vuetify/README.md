@@ -57,9 +57,10 @@ Run build process, which will create *sfc-rollup-vuetify.esm.js*, *sfc-rollup-vu
 `npm run buid`
 
 # How to build your bundle
-If all steps above worked for you then you should be able to bundle your components. You need to take a look at several files in this project and copy them in your existing vue project. If you change names and several lines, it should work.
+If all steps above worked for you then you should be able to bundle your components. You need to take a look at several files in this project and copy & adjust them in your existing vue project. If you change several lines, it should work.
 
 Copy *build/rollup.config.js* in your project
+
 Copy & adjust these files to your project: 
 1. *sfc-rollup-vuetify.d.ts*
 2. *tsconfig.json*
