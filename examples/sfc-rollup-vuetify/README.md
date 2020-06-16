@@ -17,7 +17,9 @@ Before you make your build, please test, if this bundled vue + vuetify + vee-val
 Copy the path from 3. Step and then go to your project, where you want to use (test) this component. 
 
 ## 5. Step
-In your project: `npm install /...somepath.../vue-sfc-rollup/examples/sfc-rollup-vuetify/sfc-rollup-vuetify-1.0.0.tgz`. **sfc-rollup-vuetify-1.0.0.tgz** is the vue component bundled as an npm package.
+In your project: `npm install /...somepath.../vue-sfc-rollup/examples/sfc-rollup-vuetify/sfc-rollup-vuetify-1.0.0.tgz`. **sfc-rollup-vuetify-1.0.0.tgz** is the vue component bundled as an npm package. 
+
+It is possible that you see some npm peer-dependency warnings while installing the package, but it is not a problem! Everything should still work well.
 
 After the package is installed as a normal npm package you can use it in your project.
 
