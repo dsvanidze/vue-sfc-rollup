@@ -1,3 +1,6 @@
+# Examples
+See examples/sfc-rollup-vuetify
+
 # vue-sfc-rollup
 
 vue-sfc-rollup is a CLI templating utility that scaffolds a minimal setup for compiling a Vue Single File Component (SFC) - or library of multiple SFCs - into a form ready to share via npm. It doesn't assume any particular flavor of CSS or docs generator, so you can use what you're already used to. It's the fastest way to produce npm-ready vue components!
