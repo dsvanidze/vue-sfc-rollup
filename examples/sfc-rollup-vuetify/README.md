@@ -1,5 +1,5 @@
 # ATTENTION
-if you use `npm link`, I would advise you to not use it. It causes a lot of problems with vue bundles. Here is the great answer of @vatson, which saved me several hours of effort https://github.com/vatson/rollup-plugin-vuetify/issues/6#issuecomment-638515025. I use `npm pack` and it works great. Here is a good explanation how to use `npm pack` https://rimdev.io/npm-packages-and-tgz-files/.
+if you use `npm link`, I would advise you to not use it. It causes a lot of problems with vue bundles. Here is the great answer of @vatson, which saved me several hours of effort https://github.com/vatson/rollup-plugin-vuetify/issues/6#issuecomment-638515025. I use `npm pack` and it works great. Here is a good explanation how to use `npm pack` https://rimdev.io/npm-packages-and-tgz-files/. So, if you have used `npm link` with any bundling process, try to replace it with `npm pack`. If it works for you, you will save a lot of time and all other steps below.
 
 # How to use this repository locally
 
