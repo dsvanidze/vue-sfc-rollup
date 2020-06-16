@@ -8,6 +8,7 @@ if you use `npm link`, I would advise you to not use it. It causes a lot of prob
 
 ## 2. Step
 navigate to the folder, where the example is
+
 `cd vue-sfc-rollup/examples/sfc-rollup-vuetify`
 
 # How to use this bundle
@@ -43,5 +44,26 @@ components: {
 ```
 
 
-# How to build your bundle
+# How to build a bundle
 
+## 7. Step
+If all steps worked, go back to sfc-rollup-vuetify folder and install all npm dependencies 
+
+`npm install`
+
+## 8. Step
+Run build process, which will create *sfc-rollup-vuetify.esm.js*, *sfc-rollup-vuetify.min.js*, *sfc-rollup-vuetify.ssr.js* in the /dist/ folder and *sfc-rollup-vuetify-1.0.0.tgz* in the root folder.
+
+`npm run buid`
+
+# How to build your bundle
+If all steps above worked for you then you should be able to bundle your components. You need to take a look at several files in this project and copy them in your existing vue project. If you change names and several lines, it should work.
+
+Copy *build/rollup.config.js* in your project
+Copy & adjust these files to your project: 
+1. *sfc-rollup-vuetify.d.ts*
+2. *tsconfig.json*
+3. *package.json*
+4. *src/entry.ts*
+5. *src/lib-components/index.ts*
+6. *src/lib-components/sfc-rollup-vuetify-sample.vue*
