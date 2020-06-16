@@ -35,7 +35,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-vue": "^5.1.6",
-    "rollup-plugin-vuetify": "^0.1.2",
+    "rollup-plugin-vuetify": "^0.2.2",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "typescript": "^3.8.3",
