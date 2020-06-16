@@ -1,5 +1,5 @@
 # Examples
-See examples/sfc-rollup-vuetify
+See examples/sfc-rollup-vuetify for vue-sfc-rollup + vuetify + vee-validate (it is similar for other third party dependencies)
 
 # vue-sfc-rollup
 
