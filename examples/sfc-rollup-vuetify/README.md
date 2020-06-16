@@ -1,14 +1,17 @@
 # ATTENTION
 if you use `npm link`, I would advise you to not use it. It causes a lot of problems with vue bundles. Here is the great answer of @vatson, which saved me several hours of effort https://github.com/vatson/rollup-plugin-vuetify/issues/6#issuecomment-638515025. I use `npm pack` and it works great. Here is a good explanation how to use `npm pack` https://rimdev.io/npm-packages-and-tgz-files/.
 
-# How to use this bundle
-Before you make your build, please test, if this bundled vue + vuetify + vee-validate component does work for you!
+# How to use this repository locally
 
 ## 1. Step
 `git clone https://github.com/dsvanidze/vue-sfc-rollup.git`
 
 ## 2. Step
+navigate to the folder, where the example is
 `cd vue-sfc-rollup/examples/sfc-rollup-vuetify`
+
+# How to use this bundle
+**Before you make your build, please test, if this bundled vue + vuetify + vee-validate component does work for you! If not, it makes no sense to build your bundle, because it won't work either.**
 
 ## 3. Step 
 `pwd` or equivalent for windows to get your current absolute path. For UNIX it will look like this: **/...somepath.../vue-sfc-rollup/examples/sfc-rollup-vuetify**.
@@ -38,3 +41,7 @@ components: {
 }
 ...
 ```
+
+
+# How to build your bundle
+
